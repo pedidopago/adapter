@@ -1,0 +1,7 @@
+[[spec]]
+name = "AtoB"
+src = "*A"
+dst = "*B"
+[[spec.field]]
+from = "X"
+to = "X2"

@@ -75,11 +75,13 @@ func Generate(input GenerateInput) error {
 		}
 	}
 	gof.Imports = pkgs
-	tpl := template.Must(template.New("gofile").Parse(rawtpl))
-	tpl = tpl.Funcs(template.FuncMap{
+
+	fns := template.FuncMap{
 		"trimptr": func(s string) string {
 			return strings.TrimPrefix(s, "*")
 		},
-	})
+	}
+
+	tpl := template.Must(template.New("gofile").Funcs(fns).Parse(rawtpl))
 	return tpl.Execute(input.Output, gof)
 }
