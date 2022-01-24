@@ -1,0 +1,26 @@
+[[spec]]
+    name = "UserAtoB"
+    src = "UserA"
+    dst = "UserB"
+    [[spec.field]]
+        from = "Name"
+    [[spec.field]]
+        from = "Age"
+        use = "int8"
+    [[spec.field]]
+        from = "Score"
+        to = "MaxScore"
+        use = "f64tostr"
+    [[spec.field]]
+        from = "Props"
+        use = "PropAToBSlice"
+[[spec]]
+    name = "PropAToB"
+    src = "PropA"
+    dst = "PropB"
+    [[spec.field]]
+        from = "Name"
+    [[spec.field]]
+        from = "Value"
+        use = "atoim"
+
