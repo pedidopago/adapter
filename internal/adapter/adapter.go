@@ -76,5 +76,10 @@ func Generate(input GenerateInput) error {
 	}
 	gof.Imports = pkgs
 	tpl := template.Must(template.New("gofile").Parse(rawtpl))
+	tpl = tpl.Funcs(template.FuncMap{
+		"trimptr": func(s string) string {
+			return strings.TrimPrefix(s, "*")
+		},
+	})
 	return tpl.Execute(input.Output, gof)
 }

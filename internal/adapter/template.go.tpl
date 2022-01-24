@@ -15,7 +15,7 @@ import (
 // {{.Name}} converts from {{.Src}} to {{.Dst}}.
 func {{.Name}}(src {{.Src}}) (dst {{.Dst}}) {
     {{if .DstIsPtr}}
-    dst = new({{.Dst}})
+    dst = new({{trimptr .Dst}})
     {{end}}
     {{range .Fields}}
     {{if .Use}}
